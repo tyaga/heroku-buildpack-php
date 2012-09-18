@@ -60,6 +60,8 @@ if [ -f www/composer.json ] && [ ! -d www/vendor ]; then
   export GIT_DIR=$GIT_DIR_ORIG
 fi
 
+chmod 777 www/cache
+
 cat >>boot.sh <<EOF
 for var in \`env|cut -f1 -d=\`; do
   echo "PassEnv \$var" >> /app/apache/conf/httpd.conf;
