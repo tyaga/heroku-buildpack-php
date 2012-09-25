@@ -60,7 +60,9 @@ if [ -f www/composer.json ] && [ ! -d www/vendor ]; then
   export GIT_DIR=$GIT_DIR_ORIG
 fi
 
-chmod 777 www/cache
+if [ -d www/cache ]; then
+    chmod 777 www/cache
+fi
 
 cat >>boot.sh <<EOF
 for var in \`env|cut -f1 -d=\`; do
